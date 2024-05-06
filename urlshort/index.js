@@ -47,7 +47,7 @@ app.get("/all", async (req, res, next) => {
 app.post("/short",async (req,res)=>{
     console.log("HERE",req.body.ogUrl);
     const {ogUrl}=req.body;
-    const base=`http://localhost:3333`;
+    const base=`https://url-shortener-seven-dun.vercel.app`;
 
     const urlId=shortid.generate();
     if(utils.validateUrl(ogUrl)){
@@ -66,6 +66,7 @@ app.post("/short",async (req,res)=>{
                 });
 
                 await url.save();
+                // console.log()
                 res.json(url);
             }
         }catch(err){
