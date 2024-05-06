@@ -33,12 +33,13 @@ app.get("/",async (req,res)=>{
 })
 
 //URL shortener endpoint
-app.get("/all", async (req, res) => {
+app.get("/all", async (req, res, next) => {
     try {
         const data = await Url.find().exec();
         res.json(data);
     } catch (error) {
-        next(error);
+        console.error("Error fetching URLs:", error);
+        res.status(500).json({ error: "Error fetching URLs" });
     }
 });
 
