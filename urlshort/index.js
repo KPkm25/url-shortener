@@ -10,7 +10,7 @@ dotenv.config();
 const app=express();
 
 app.use(cors({
-    origin:["https://url-shortener-back-eta.vercel.app"],
+    origin:["https://url-shortener-seven-dun.vercel.app"],
     methods:["POST","GET"],
     credentials:true
   }));app.use(express.json());
