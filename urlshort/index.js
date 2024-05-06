@@ -9,8 +9,11 @@ const utils=require('./util/util');
 dotenv.config();
 const app=express();
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+    origin:["https://url-shortener-back-eta.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }));app.use(express.json());
 
 //database connection
 mongoose
@@ -25,16 +28,9 @@ mongoose
     console.log(e.message);
 });
 
-//get all saved urls
-// app.get("/all",async (req,res)=>{
-//     Url.find((error,data)=>{
-//         if(error){
-//             return next(error);
-//         }else{
-//             res.json(data);
-//         }
-//     });
-// })
+app.get("/",async (req,res)=>{
+    res.send("hello");
+})
 
 //URL shortener endpoint
 app.get("/all", async (req, res) => {

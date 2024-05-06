@@ -6,7 +6,7 @@ const ViewUrlComponent= () => {
 
     useEffect(() => {
       const fetchUrlAndSetUrl = async () => {
-        const result = await axios.get("http://localhost:3333/all");
+        const result = await axios.get("https://url-shortener-back-eta.vercel.app/all");
         setUrls(result.data);
       };
       fetchUrlAndSetUrl();

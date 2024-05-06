@@ -14,7 +14,7 @@ const AddUrlComponent = () => {
         }
 
         axios
-          .post("http://localhost:3333/short", {ogUrl: url})
+          .post("https://url-shortener-back-eta.vercel.app/short", {ogUrl: url})
           .then(res => {
             console.log(res.data);
           })
