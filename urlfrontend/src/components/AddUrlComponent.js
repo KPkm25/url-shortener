@@ -6,7 +6,7 @@ const AddUrlComponent = () => {
 
     
     const onSubmit = (e)=> {
-        //e.preventDefault();
+        e.preventDefault();
 
         if (!url) {
           alert("please enter something");
@@ -15,6 +15,8 @@ const AddUrlComponent = () => {
 
         axios
           .post("https://url-shortener-back-eta.vercel.app/short", {ogUrl: url})
+          // .post("http://localhost:3333/short", {ogUrl: url})
+
           .then(res => {
             console.log(res.data);
           })
